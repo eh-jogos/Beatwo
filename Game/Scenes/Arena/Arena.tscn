@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Scenes/Arena/arena.tex" type="Texture" id=1]
+
+[node name="Arena" type="Node2D"]
+
+[node name="Building" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+
+

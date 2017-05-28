@@ -14,7 +14,7 @@
    viewBox="0 0 640.00001 800.00001"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.0 r15299"
+   inkscape:version="0.92.1 r"
    sodipodi:docname="game_mockup.svg">
   <defs
      id="defs4" />
@@ -26,16 +26,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="351.914"
-     inkscape:cy="515.27903"
+     inkscape:cx="79.914"
+     inkscape:cy="396.27903"
      inkscape:document-units="px"
      inkscape:current-layer="layer5"
      showgrid="false"
      units="px"
-     inkscape:window-width="1366"
-     inkscape:window-height="705"
-     inkscape:window-x="1016"
-     inkscape:window-y="-8"
+     inkscape:window-width="1600"
+     inkscape:window-height="1148"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="false"
      fit-margin-top="0"
@@ -50,7 +50,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -66,7 +66,10 @@
        height="800"
        width="640"
        id="rect4268"
-       style="opacity:1;fill:#76dab8;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.172;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#76dab8;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.172;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Art/prototype/pngs/fundo.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <path
        style="opacity:1;fill:#583134;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.172;stroke-dashoffset:0;stroke-opacity:1"
        d="m 481.31579,167.83916 143.13559,-11.1844 V 286.63038 L 481.31579,264.17997 Z"
@@ -75,7 +78,10 @@
        sodipodi:nodetypes="ccccc" />
     <g
        id="g4254"
-       transform="matrix(1.4239698,0,0,1.1578542,-161.68678,-95.148126)">
+       transform="matrix(1.4239698,0,0,1.1578542,-161.68678,-95.148126)"
+       inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Art/prototype/pngs/arena.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72">
       <path
          sodipodi:nodetypes="ccccc"
          inkscape:connector-curvature="0"
@@ -103,14 +109,20 @@
        height="74.478142"
        width="37.239071"
        id="rect4260"
-       style="opacity:1;fill:#6ab000;fill-opacity:1;stroke:none;stroke-width:2.93195629;stroke-miterlimit:4;stroke-dasharray:11.72782502, 11.72782502;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#6ab000;fill-opacity:1;stroke:none;stroke-width:2.93195629;stroke-miterlimit:4;stroke-dasharray:11.72782502, 11.72782502;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Art/prototype/pngs/player.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <rect
        y="95.905693"
        x="349.85266"
        height="74.478142"
        width="37.239071"
        id="rect4262"
-       style="opacity:1;fill:#ff4800;fill-opacity:1;stroke:none;stroke-width:2.93195629;stroke-miterlimit:4;stroke-dasharray:11.72782502, 11.72782502;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#ff4800;fill-opacity:1;stroke:none;stroke-width:2.93195629;stroke-miterlimit:4;stroke-dasharray:11.72782502, 11.72782502;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Art/prototype/pngs/enemy01.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <rect
        y="87.630341"
        x="257.99628"
@@ -145,32 +157,66 @@
        width="293"
        height="283.25"
        x="173"
-       y="233.89719" />
+       y="233.89719"
+       inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Art/prototype/pngs/panel.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <circle
        r="41.012192"
        cy="582.98779"
        cx="233.24474"
        id="circle4278"
-       style="opacity:1;fill:#583134;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.172;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#004794;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.17200000000000060;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <circle
-       style="opacity:1;fill:#583134;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.172;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#d60414;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.17200000000000060;stroke-dashoffset:0;stroke-opacity:1"
        id="path4276"
        cx="398.70773"
        cy="582.98779"
-       r="41.012192" />
+       r="41.012192"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.9375;"
+       x="388.44009"
+       y="599.0708"
+       id="text4507"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72"><tspan
+         sodipodi:role="line"
+         id="tspan4505"
+         x="388.44009"
+         y="599.0708"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.9375;fill:#ffffff;fill-opacity:1;">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.9375;"
+       x="222.95679"
+       y="598.95612"
+       id="text4511"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72"><tspan
+         sodipodi:role="line"
+         id="tspan4509"
+         x="222.95679"
+         y="598.95612"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.9375;fill:#ffffff;fill-opacity:1;">C</tspan></text>
   </g>
   <g
      inkscape:label="Mascara vertical"
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-252.36216)"
-     style="display:inline">
+     style="display:none"
+     sodipodi:insensitive="true">
     <path
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.172;stroke-dashoffset:0;stroke-opacity:1"
        d="M 0,0 V 160 800 H 140 V 160 H 500 V 800 H 640 V 160 0 Z"
-       transform="translate(0,252.36216)"
        id="rect4137-4"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       transform="translate(0,252.36216)" />
   </g>
   <g
      inkscape:groupmode="layer"
