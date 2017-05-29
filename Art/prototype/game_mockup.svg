@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="79.914"
-     inkscape:cy="396.27903"
+     inkscape:cx="381.914"
+     inkscape:cy="122.27903"
      inkscape:document-units="px"
      inkscape:current-layer="layer5"
      showgrid="false"
@@ -50,7 +50,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -162,47 +162,173 @@
        inkscape:export-xdpi="72"
        inkscape:export-ydpi="72" />
     <circle
+       inkscape:export-ydpi="72"
+       inkscape:export-xdpi="72"
        r="41.012192"
        cy="582.98779"
-       cx="233.24474"
-       id="circle4278"
-       style="opacity:1;fill:#004794;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.17200000000000060;stroke-dashoffset:0;stroke-opacity:1"
-       inkscape:export-xdpi="72"
-       inkscape:export-ydpi="72" />
-    <circle
-       style="opacity:1;fill:#d60414;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.17200000000000060;stroke-dashoffset:0;stroke-opacity:1"
-       id="path4276"
        cx="398.70773"
-       cy="582.98779"
-       r="41.012192"
+       id="circle4510"
+       style="opacity:1;fill:#d60414;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.172;stroke-dashoffset:0;stroke-opacity:1" />
+    <g
+       id="g4537">
+      <circle
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         r="41.012192"
+         cy="582.98779"
+         cx="398.70773"
+         id="circle4531"
+         style="opacity:1;fill:#d60414;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.172;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         id="text4535"
+         y="599.0708"
+         x="388.44009"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.9375"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.9375"
+           y="599.0708"
+           x="388.44009"
+           id="tspan4533"
+           sodipodi:role="line">A</tspan></text>
+    </g>
+    <g
+       id="g4523"
+       transform="translate(175.3125)"
+       inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Game/Gui/Teste1_HUD/AtkBtn_hover.png"
        inkscape:export-xdpi="72"
-       inkscape:export-ydpi="72" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.9375;"
-       x="388.44009"
-       y="599.0708"
-       id="text4507"
-       inkscape:export-xdpi="72"
-       inkscape:export-ydpi="72"><tspan
-         sodipodi:role="line"
-         id="tspan4505"
+       inkscape:export-ydpi="72">
+      <circle
+         style="opacity:1;fill:#ff2a3b;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.17200000000000060;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle4517"
+         cx="398.70773"
+         cy="582.98779"
+         r="41.012192"
+         inkscape:export-xdpi="72"
+         inkscape:export-ydpi="72" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.9375"
          x="388.44009"
          y="599.0708"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.9375;fill:#ffffff;fill-opacity:1;">A</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.9375;"
-       x="222.95679"
-       y="598.95612"
-       id="text4511"
+         id="text4521"
+         inkscape:export-xdpi="72"
+         inkscape:export-ydpi="72"><tspan
+           sodipodi:role="line"
+           id="tspan4519"
+           x="388.44009"
+           y="599.0708"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.9375">A</tspan></text>
+    </g>
+    <g
+       id="g4515"
+       transform="translate(88.125001)"
+       inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Game/Gui/Teste1_HUD/AtkBtn_pressed.png"
        inkscape:export-xdpi="72"
-       inkscape:export-ydpi="72"><tspan
-         sodipodi:role="line"
-         id="tspan4509"
+       inkscape:export-ydpi="72">
+      <circle
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         r="41.012192"
+         cy="582.98779"
+         cx="398.70773"
+         id="path4276"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.17200000000000060;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         id="text4507"
+         y="599.0708"
+         x="388.44009"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#d60414;fill-opacity:1;stroke:none;stroke-width:0.9375;"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#d60414;fill-opacity:1;stroke-width:0.9375;"
+           y="599.0708"
+           x="388.44009"
+           id="tspan4505"
+           sodipodi:role="line">A</tspan></text>
+    </g>
+    <g
+       id="g4550">
+      <circle
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         style="opacity:1;fill:#004794;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.172;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle4544"
+         cx="233.24474"
+         cy="582.98779"
+         r="41.012192" />
+      <text
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         id="text4548"
+         y="598.95612"
+         x="222.95679"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.9375"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.9375"
+           y="598.95612"
+           x="222.95679"
+           id="tspan4546"
+           sodipodi:role="line">C</tspan></text>
+    </g>
+    <g
+       id="g4542"
+       transform="translate(-186.5625)"
+       inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Game/Gui/Teste1_HUD/CounterBtn_hover.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72">
+      <circle
+         r="41.012192"
+         cy="582.98779"
+         cx="233.24474"
+         id="circle4525"
+         style="opacity:1;fill:#0079fc;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.17200000000000060;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:export-xdpi="72"
+         inkscape:export-ydpi="72" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.9375"
          x="222.95679"
          y="598.95612"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.9375;fill:#ffffff;fill-opacity:1;">C</tspan></text>
+         id="text4529"
+         inkscape:export-xdpi="72"
+         inkscape:export-ydpi="72"><tspan
+           sodipodi:role="line"
+           id="tspan4527"
+           x="222.95679"
+           y="598.95612"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.9375">C</tspan></text>
+    </g>
+    <g
+       id="g4555"
+       inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Game/Gui/Teste1_HUD/CounterBtn_pressed.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72">
+      <circle
+         inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Game/Gui/Teste1_HUD/CounterBtn_pressed.png"
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.54299998;stroke-miterlimit:4;stroke-dasharray:14.172, 14.17200000000000060;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle4278"
+         cx="138.55724"
+         cy="582.98779"
+         r="41.012192" />
+      <text
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         id="text4511"
+         y="598.95612"
+         x="128.26929"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#004794;fill-opacity:1;stroke:none;stroke-width:0.9375;"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;font-family:'Komika Axis';-inkscape-font-specification:'Komika Axis, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#004794;fill-opacity:1;stroke-width:0.9375;"
+           y="598.95612"
+           x="128.26929"
+           id="tspan4509"
+           sodipodi:role="line">C</tspan></text>
+    </g>
   </g>
   <g
      inkscape:label="Mascara vertical"
