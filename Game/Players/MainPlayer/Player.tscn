@@ -1,10 +1,15 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://Players/MainPlayer/Player.gd" type="Script" id=1]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/AttackMachine.gd" type="Script" id=2]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/AttackStates/DetectEnemy.gd" type="Script" id=3]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/AttackStates/AttackTarget.gd" type="Script" id=4]
-[ext_resource path="res://Players/MainPlayer/player.tex" type="Texture" id=5]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/DamageMachine.gd" type="Script" id=2]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/DamageMachine/Vulnerable.gd" type="Script" id=3]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/SenseMachine.gd" type="Script" id=4]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/SenseMachine/DetectEnemy.gd" type="Script" id=5]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/SenseMachine/ChooseTarget.gd" type="Script" id=6]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine.gd" type="Script" id=7]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/Idle.gd" type="Script" id=8]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/Attack.gd" type="Script" id=9]
+[ext_resource path="res://Players/MainPlayer/player.tex" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -47,10 +52,10 @@ tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = { "times":FloatArray( 0, 0.1, 0.3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ] }
 tracks/3/type = "method"
-tracks/3/path = NodePath("BattleBrain/AttackMachine/AttackTarget")
+tracks/3/path = NodePath("BattleBrain/ActionMachine/Attack")
 tracks/3/interp = 1
 tracks/3/imported = false
-tracks/3/keys = { "times":FloatArray( 0.3 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"back_to_detect" } ] }
+tracks/3/keys = { "times":FloatArray( 0.3 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"back_to_idle" } ] }
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -67,33 +72,41 @@ script/script = ExtResource( 1 )
 
 [node name="DamageMachine" type="Node" parent="BattleBrain"]
 
-[node name="Vulnerable" type="Node" parent="BattleBrain/DamageMachine"]
-
-[node name="Invulnerable" type="Node" parent="BattleBrain/DamageMachine"]
-
-[node name="AttackMachine" type="Node" parent="BattleBrain"]
-
 script/script = ExtResource( 2 )
 
-[node name="Disabled" type="Node" parent="BattleBrain/AttackMachine"]
-
-[node name="DetectEnemy" type="Node" parent="BattleBrain/AttackMachine"]
+[node name="Vulnerable" type="Node" parent="BattleBrain/DamageMachine"]
 
 script/script = ExtResource( 3 )
 
-[node name="AttackTarget" type="Node" parent="BattleBrain/AttackMachine"]
+[node name="Invulnerable" type="Node" parent="BattleBrain/DamageMachine"]
+
+[node name="SenseMachine" type="Node" parent="BattleBrain"]
 
 script/script = ExtResource( 4 )
 
-[node name="TakingDamage" type="Node" parent="BattleBrain/AttackMachine"]
+[node name="DetectEnemy" type="Node" parent="BattleBrain/SenseMachine"]
 
-[node name="CounterMachine" type="Node" parent="BattleBrain"]
+script/script = ExtResource( 5 )
 
-[node name="Idle" type="Node" parent="BattleBrain/CounterMachine"]
+[node name="ChooseTarget" type="Node" parent="BattleBrain/SenseMachine"]
 
-[node name="SenseAttack" type="Node" parent="BattleBrain/CounterMachine"]
+script/script = ExtResource( 6 )
 
-[node name="Counter" type="Node" parent="BattleBrain/CounterMachine"]
+[node name="ActionMachine" type="Node" parent="BattleBrain"]
+
+script/script = ExtResource( 7 )
+
+[node name="Idle" type="Node" parent="BattleBrain/ActionMachine"]
+
+script/script = ExtResource( 8 )
+
+[node name="Attack" type="Node" parent="BattleBrain/ActionMachine"]
+
+script/script = ExtResource( 9 )
+
+[node name="Counter" type="Node" parent="BattleBrain/ActionMachine"]
+
+[node name="TakingDamage" type="Node" parent="BattleBrain/ActionMachine"]
 
 [node name="EnemyDetection" type="Area2D" parent="."]
 
@@ -120,7 +133,7 @@ _update_shape_index = 0
 [node name="Sprite" type="Sprite" parent="."]
 
 material/material = SubResource( 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
@@ -143,7 +156,6 @@ autoplay = ""
 
 [node name="DebugPanels" type="Control" parent="."]
 
-editor/display_folded = true
 anchor/left = 3
 anchor/top = 3
 anchor/right = 3
@@ -157,129 +169,130 @@ margin/top = 2.0
 margin/right = 11.0
 margin/bottom = -38.0
 
-[node name="DamageStates" type="Label" parent="DebugPanels"]
+[node name="DamageMachine" type="Label" parent="DebugPanels"]
 
 rect/scale = Vector2( 0.7, 0.7 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -29.0
+margin/left = -39.0
 margin/top = 6.0
-margin/right = 17.0
+margin/right = 21.0
 margin/bottom = 20.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "DmgSt:"
+text = "DmgMac:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Panel" type="Panel" parent="DebugPanels/DamageStates"]
+[node name="Panel" type="Panel" parent="DebugPanels/DamageMachine"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 48.0
+margin/left = 62.0
 margin/top = 0.0
-margin/right = 139.0
+margin/right = 153.0
 margin/bottom = 14.0
 
-[node name="DebugText" type="Label" parent="DebugPanels/DamageStates"]
+[node name="DebugText" type="Label" parent="DebugPanels/DamageMachine"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 48.0
+margin/left = 62.0
 margin/top = 0.0
-margin/right = 139.0
+margin/right = 153.0
 margin/bottom = 14.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="AttackStates" type="Label" parent="DebugPanels"]
+[node name="SenseMachine" type="Label" parent="DebugPanels"]
 
 rect/scale = Vector2( 0.7, 0.7 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -23.0
+margin/left = -33.0
 margin/top = 17.0
-margin/right = 14.0
+margin/right = 19.0
 margin/bottom = 31.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "AtkSt:"
+text = "SnsMac:"
+align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Panel" type="Panel" parent="DebugPanels/AttackStates"]
+[node name="Panel" type="Panel" parent="DebugPanels/SenseMachine"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 39.0
+margin/left = 53.0
 margin/top = -1.0
-margin/right = 130.0
+margin/right = 144.0
 margin/bottom = 13.0
 
-[node name="DebugText" type="Label" parent="DebugPanels/AttackStates"]
+[node name="DebugText" type="Label" parent="DebugPanels/SenseMachine"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 39.0
+margin/left = 53.0
 margin/top = -1.0
-margin/right = 129.0
+margin/right = 143.0
 margin/bottom = 13.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="CounterStates" type="Label" parent="DebugPanels"]
+[node name="ActionMachine" type="Label" parent="DebugPanels"]
 
 rect/scale = Vector2( 0.7, 0.7 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -23.0
+margin/left = -33.0
 margin/top = 27.0
 margin/right = 14.0
 margin/bottom = 41.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "CntSt:"
+text = "ActMac:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Panel" type="Panel" parent="DebugPanels/CounterStates"]
+[node name="Panel" type="Panel" parent="DebugPanels/ActionMachine"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 39.0
+margin/left = 53.0
 margin/top = -1.0
-margin/right = 130.0
+margin/right = 144.0
 margin/bottom = 13.0
 
-[node name="DebugText" type="Label" parent="DebugPanels/CounterStates"]
+[node name="DebugText" type="Label" parent="DebugPanels/ActionMachine"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 39.0
+margin/left = 53.0
 margin/top = -1.0
-margin/right = 130.0
+margin/right = 144.0
 margin/bottom = 13.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 percent_visible = 1.0

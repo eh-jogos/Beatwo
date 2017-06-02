@@ -6,7 +6,7 @@ extends Node
 
 onready var __state = self.get_node("DetectEnemy")
 onready var player = self.get_node("../..")
-onready var debug = player.get_node("DebugPanels/AttackStates/DebugText")
+onready var debug = player.get_node("DebugPanels/SenseMachine/DebugText")
 
 
 #############################
@@ -30,11 +30,6 @@ func _ready():
 	set_process_input(true)
 	
 	self.transition_to(__state)
-	self.__state.enter(player)
-	pass
-
-func _input(event):
-	self.__state.input(player, event)
 	pass
 
 func _process(delta):
