@@ -23,7 +23,15 @@ transform/pos = Vector2( 180.26, 252.079 )
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 
-[node name="Enemy01" parent="." instance=ExtResource( 4 )]
+[node name="Enemy1" parent="." instance=ExtResource( 4 )]
+
+[node name="Enemy2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 136.409, 251.635 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 204.409, 261.635 )
 
 [node name="HUD" type="Control" parent="."]
 

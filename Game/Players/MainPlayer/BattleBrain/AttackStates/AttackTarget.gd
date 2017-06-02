@@ -1,26 +1,25 @@
 extends "res://Players/MainPlayer/BaseState.gd"
 
-# class member variables go here, for example:
+##########################
+# class member variables #
+##########################
 var myTimer
 
-#State Custom Functions
+#########################
+#State Custom Functions #
+#########################
+
+# get's called at the end of attack animation
 func back_to_detect():
-	if myTimer.is_connected("timeout",self,"back_to_detect"):
-		myTimer.disconnect("timeout",self,"back_to_detect")
 	var state = __parent.get_node("DetectEnemy")
 	__parent.transition_to(state)
-	
 	pass
 
-# State Base Functions
+########################
+# State Base Functions #
+########################
 func enter(entity):
-	myTimer = Timer.new()
-	myTimer.set_wait_time(0.2)
-	myTimer.set_one_shot(true)
-	if !myTimer.is_connected("timeout",self,"back_to_detect"):
-		myTimer.connect("timeout",self,"back_to_detect")
-	add_child(myTimer)
-	myTimer.start()
+	entity.animator().play("attack1")
 	pass
 
 func input(entity, event):

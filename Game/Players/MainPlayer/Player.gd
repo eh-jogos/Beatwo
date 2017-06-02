@@ -1,11 +1,26 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-onready var player = self
-onready var radar = self.get_node("EnemyDetection")
-onready var animator = self.get_node("Animator")
+##########################
+# class member variables #
+##########################
 
-onready var debug_panels = self.get_node("DebugPanels")
+onready var animator = self.get_node("Animator")
+onready var radar = self.get_node("EnemyDetection")
+
+
+#############################
+# Custom Method Definitions #
+#############################
+
+func animator():
+	return animator
+
+func radar():
+	return radar
+
+###########################
+# Engine Standard Methods #
+###########################
 
 func _ready():
 	# Called every time the node is added to the scene.

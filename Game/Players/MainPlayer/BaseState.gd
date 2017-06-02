@@ -1,7 +1,20 @@
 extends Node
 
-# class member variables go here, for example:
+##########################
+# Class Member Variables #
+##########################
+
 onready var __parent = self.get_node("..")
+
+
+#########################
+#State Custom Functions #
+#########################
+
+
+########################
+# State Base Functions #
+########################
 
 func enter(entity):
 	pass
