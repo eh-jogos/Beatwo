@@ -16,7 +16,7 @@ onready var debug = player.get_node("DebugPanels/SenseMachine/DebugText")
 func transition_to(state):
 	self.__state = state
 	debug.set_text(state.get_name())
-	return self.__state.enter(player)
+	self.__state.enter(player)
 	pass
 
 
@@ -27,7 +27,6 @@ func transition_to(state):
 func _ready():
 	# Initialization here
 	set_process(true)
-	set_process_input(true)
 	
 	self.transition_to(__state)
 	pass

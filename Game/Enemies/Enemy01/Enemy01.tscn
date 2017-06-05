@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://Enemies/Enemy01/enemy01.png" type="Texture" id=1]
+[ext_resource path="res://Enemies/Enemy01/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/Enemy01/enemy01.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -9,7 +10,6 @@ extents = Vector2( 15, 30 )
 
 [node name="Enemy01" type="KinematicBody2D"]
 
-transform/pos = Vector2( 216.409, 251.635 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -17,11 +17,14 @@ shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 1
 collision/margin = 0.08
-__meta__ = { "_edit_group_":true }
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

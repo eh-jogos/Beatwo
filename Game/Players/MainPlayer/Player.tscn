@@ -1,15 +1,14 @@
-[gd_scene load_steps=16 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://Players/MainPlayer/Player.gd" type="Script" id=1]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/DamageMachine.gd" type="Script" id=2]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/DamageMachine/Vulnerable.gd" type="Script" id=3]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/SenseMachine.gd" type="Script" id=4]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/SenseMachine/DetectEnemy.gd" type="Script" id=5]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/SenseMachine/ChooseTarget.gd" type="Script" id=6]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine.gd" type="Script" id=7]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/Idle.gd" type="Script" id=8]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/Attack.gd" type="Script" id=9]
-[ext_resource path="res://Players/MainPlayer/player.tex" type="Texture" id=10]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/BattleBrain.gd" type="Script" id=2]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/SenseMachine.gd" type="Script" id=3]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/SenseMachine/DetectEnemy.gd" type="Script" id=4]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/SenseMachine/ChooseTarget.gd" type="Script" id=5]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine.gd" type="Script" id=6]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/Idle.gd" type="Script" id=7]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/Attack.gd" type="Script" id=8]
+[ext_resource path="res://Players/MainPlayer/player.tex" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -23,7 +22,16 @@ radius = 38.5985
 
 [sub_resource type="CanvasItemShader" id=3]
 
-_code = { "fragment":"\nuniform color modulate=color(0.2,0.4,1.0,1.0);\nCOLOR = vec4(modulate.rgb,tex(TEXTURE,UV).a*modulate.a);", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+_code = {
+"fragment": "
+uniform color modulate=color(0.2,0.4,1.0,1.0);
+COLOR = vec4(modulate.rgb,tex(TEXTURE,UV).a*modulate.a);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
 
 [sub_resource type="CanvasItemMaterial" id=4]
 
@@ -40,22 +48,179 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material/material:shader_param/modulate")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Color( 0.415686, 0.690196, 0, 1 ), Color( 0.2, 0.4, 1, 1 ), Color( 0.415686, 0.690196, 0, 1 ) ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.415686, 0.690196, 0, 1 ), Color( 0.839216, 0.0156863, 0.0784314, 1 ), Color( 0.415686, 0.690196, 0, 1 ) ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:transform/scale")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 0.1, 0.3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ] }
+tracks/1/keys = {
+"times": FloatArray( 0, 0.1, 0.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:transform/pos")
 tracks/2/interp = 1
 tracks/2/imported = false
-tracks/2/keys = { "times":FloatArray( 0, 0.1, 0.3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ] }
+tracks/2/keys = {
+"times": FloatArray( 0, 0.1, 0.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
+}
 tracks/3/type = "method"
 tracks/3/path = NodePath("BattleBrain/ActionMachine/Attack")
 tracks/3/interp = 1
 tracks/3/imported = false
-tracks/3/keys = { "times":FloatArray( 0.3 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"back_to_idle" } ] }
+tracks/3/keys = {
+"times": FloatArray( 0.3 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "back_to_idle"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "counter1"
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material/material:shader_param/modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.415686, 0.690196, 0, 1 ), Color( 0, 0.278431, 0.580392, 1 ), Color( 0.415686, 0.690196, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.1, 0.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.1, 0.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("BattleBrain/ActionMachine/Attack")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0.3 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "back_to_idle"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource/name = "idle"
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material/material:shader_param/modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Color( 0.415686, 0.690196, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.4, 0.8 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource/name = "take_damage"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material/material:shader_param/modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.5 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.415686, 0.690196, 0, 1 ), Color( 0.426008, 0.167267, 0.738281, 1 ), Color( 0.415686, 0.690196, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.2, 0.5 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -3, 0 ), Vector2( 0, -3 ), Vector2( 0, 3 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("BattleBrain/ActionMachine/Attack")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0.5 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "back_to_idle"
+} ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -67,53 +232,45 @@ collision/layers = 1
 collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+health = 10
 
 [node name="BattleBrain" type="Node" parent="."]
 
-[node name="DamageMachine" type="Node" parent="BattleBrain"]
-
 script/script = ExtResource( 2 )
-
-[node name="Vulnerable" type="Node" parent="BattleBrain/DamageMachine"]
-
-script/script = ExtResource( 3 )
-
-[node name="Invulnerable" type="Node" parent="BattleBrain/DamageMachine"]
 
 [node name="SenseMachine" type="Node" parent="BattleBrain"]
 
-script/script = ExtResource( 4 )
+script/script = ExtResource( 3 )
 
 [node name="DetectEnemy" type="Node" parent="BattleBrain/SenseMachine"]
 
-script/script = ExtResource( 5 )
+script/script = ExtResource( 4 )
 
 [node name="ChooseTarget" type="Node" parent="BattleBrain/SenseMachine"]
 
-script/script = ExtResource( 6 )
+script/script = ExtResource( 5 )
 
 [node name="ActionMachine" type="Node" parent="BattleBrain"]
 
-script/script = ExtResource( 7 )
+script/script = ExtResource( 6 )
 
 [node name="Idle" type="Node" parent="BattleBrain/ActionMachine"]
 
-script/script = ExtResource( 8 )
+script/script = ExtResource( 7 )
 
 [node name="Attack" type="Node" parent="BattleBrain/ActionMachine"]
 
-script/script = ExtResource( 9 )
+script/script = ExtResource( 8 )
 
 [node name="Counter" type="Node" parent="BattleBrain/ActionMachine"]
 
-[node name="TakingDamage" type="Node" parent="BattleBrain/ActionMachine"]
+[node name="TakeDamage" type="Node" parent="BattleBrain/ActionMachine"]
 
 [node name="EnemyDetection" type="Area2D" parent="."]
 
-editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 0.345203, 0, 28.872 )
+shapes/0/transform = Matrix32( 1, 0, 0, 0.335283, 0, 29.1316 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -124,8 +281,8 @@ collision/mask = 2
 
 [node name="Area" type="CollisionShape2D" parent="EnemyDetection"]
 
-transform/pos = Vector2( 0, 28.872 )
-transform/scale = Vector2( 1, 0.345203 )
+transform/pos = Vector2( 0, 29.1316 )
+transform/scale = Vector2( 1, 0.335283 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
@@ -133,7 +290,7 @@ _update_shape_index = 0
 [node name="Sprite" type="Sprite" parent="."]
 
 material/material = SubResource( 4 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
@@ -141,7 +298,9 @@ visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 
@@ -149,6 +308,9 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/attack1 = SubResource( 5 )
+anims/counter1 = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/take_damage = SubResource( 8 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -169,49 +331,6 @@ margin/top = 2.0
 margin/right = 11.0
 margin/bottom = -38.0
 
-[node name="DamageMachine" type="Label" parent="DebugPanels"]
-
-rect/scale = Vector2( 0.7, 0.7 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -39.0
-margin/top = 6.0
-margin/right = 21.0
-margin/bottom = 20.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "DmgMac:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Panel" type="Panel" parent="DebugPanels/DamageMachine"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 62.0
-margin/top = 0.0
-margin/right = 153.0
-margin/bottom = 14.0
-
-[node name="DebugText" type="Label" parent="DebugPanels/DamageMachine"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 62.0
-margin/top = 0.0
-margin/right = 153.0
-margin/bottom = 14.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
 [node name="SenseMachine" type="Label" parent="DebugPanels"]
 
 rect/scale = Vector2( 0.7, 0.7 )
@@ -220,9 +339,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -33.0
-margin/top = 17.0
+margin/top = 16.0
 margin/right = 19.0
-margin/bottom = 31.0
+margin/bottom = 30.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "SnsMac:"
 align = 2
@@ -265,7 +384,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -33.0
 margin/top = 27.0
-margin/right = 14.0
+margin/right = 18.0
 margin/bottom = 41.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ActMac:"

@@ -8,17 +8,18 @@ onready var __state = self.get_node("Idle")
 onready var player = self.get_node("../..")
 onready var debug = player.get_node("DebugPanels/ActionMachine/DebugText")
 
-
 #############################
 # Custom Method Definitions #
 #############################
 
 func transition_to(state):
-	self.__state = state
+	self.set_state(state)
 	debug.set_text(state.get_name())
-	return self.__state.enter(player)
+	self.__state.enter(player)
 	pass
 
+func set_state(state):
+	self.__state = state
 
 ###########################
 # Engine Standard Methods #

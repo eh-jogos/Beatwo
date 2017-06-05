@@ -25,13 +25,15 @@ transform/pos = Vector2( 180.26, 252.079 )
 
 [node name="Enemy1" parent="." instance=ExtResource( 4 )]
 
+transform/pos = Vector2( 212.409, 251.635 )
+
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 136.409, 251.635 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 204.409, 261.635 )
+transform/pos = Vector2( 194.296, 258.276 )
 
 [node name="HUD" type="Control" parent="."]
 
@@ -43,7 +45,9 @@ margin/left = 1.0
 margin/top = 0.0
 margin/right = 361.0
 margin/bottom = 640.0
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AttackBtn" type="TouchScreenButton" parent="HUD"]
 
@@ -51,6 +55,9 @@ transform/pos = Vector2( 215, 560 )
 normal = ExtResource( 5 )
 pressed = ExtResource( 6 )
 bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
 passby_press = false
 action = "attack"
 visibility_mode = 0
@@ -61,6 +68,9 @@ transform/pos = Vector2( 79, 560 )
 normal = ExtResource( 7 )
 pressed = ExtResource( 8 )
 bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
 passby_press = false
 action = "counter"
 visibility_mode = 0

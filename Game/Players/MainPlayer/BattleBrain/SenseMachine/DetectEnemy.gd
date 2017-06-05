@@ -3,7 +3,8 @@ extends "BaseSense.gd"
 ##########################
 # Class Member Variables #
 ##########################
-
+onready var battle_brain = __parent.get_node("..")
+var radar
 
 ########################
 # State Base Functions #
@@ -14,6 +15,7 @@ extends "BaseSense.gd"
 # State Base Functions #
 ########################
 func enter(entity):
+	radar = entity.radar()
 	pass
 
 func update(entity, delta):
@@ -23,5 +25,7 @@ func update(entity, delta):
 	if enemy_count > 0:
 		var next_state = __parent.get_node("ChooseTarget")
 		__parent.transition_to(next_state)
-		
+	else:
+		battle_brain.set_attack_target(null)
+		battle_brain.set_counter_target([])
 	pass
