@@ -12,14 +12,11 @@ onready var debug = player.get_node("DebugPanels/ActionMachine/DebugText")
 # Custom Method Definitions #
 #############################
 
-func transition_to(state):
-	self.set_state(state)
-	debug.set_text(state.get_name())
-	self.__state.enter(player)
-	pass
-
-func set_state(state):
+func transition_to(state, variable = null):
 	self.__state = state
+	debug.set_text(state.get_name())
+	self.__state.enter(player, variable)
+	pass
 
 ###########################
 # Engine Standard Methods #

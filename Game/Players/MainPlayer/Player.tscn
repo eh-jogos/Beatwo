@@ -41,7 +41,7 @@ shader_param/modulate = Color( 0.415686, 0.690196, 0, 1 )
 
 [sub_resource type="Animation" id=5]
 
-length = 0.3
+length = 0.4
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -79,11 +79,14 @@ tracks/3/path = NodePath("BattleBrain/ActionMachine/Attack")
 tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = {
-"times": FloatArray( 0.3 ),
-"transitions": FloatArray( 1 ),
+"times": FloatArray( 0.1, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
 "values": [ {
-"args": [  ],
-"method": "back_to_idle"
+"args": [ NodePath("../../..") ],
+"method": "hit_target"
+}, {
+"args": [ NodePath("../../..") ],
+"method": "choose_action"
 } ]
 }
 
@@ -233,6 +236,7 @@ collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 health = 10
+hit_damage = 2
 
 [node name="BattleBrain" type="Node" parent="."]
 
@@ -294,7 +298,6 @@ texture = ExtResource( 9 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
-visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

@@ -16,7 +16,7 @@ onready var __parent = self.get_node("..")
 # State Base Functions #
 ########################
 
-func enter(entity):
+func enter(entity, variable):
 	pass
 
 func input(entity, event):

@@ -22,7 +22,7 @@ func get_counter_target():
 	return counter_target
 
 func set_counter_target(target):
-	counter_target = target.duplicate()
+	counter_target = [] + target
 
 func get_vulnerability():
 	return vulnerable

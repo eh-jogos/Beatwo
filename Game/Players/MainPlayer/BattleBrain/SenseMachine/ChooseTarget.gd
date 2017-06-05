@@ -64,5 +64,11 @@ func update(entity, delta):
 	else:
 		back_to_detect()
 	
-	print("Attack target: %s" % [battle_brain.get_attack_target().get_name()])
-	print("Counter target: %s" % [battle_brain.get_counter_target().size()])
+	var name
+	if battle_brain.get_attack_target() != null:
+		name = battle_brain.get_attack_target().get_name()
+	else:
+		name = "null"
+	
+#	print("Attack target: %s" % [name])
+#	print("Counter target: %s" % [battle_brain.get_counter_target().size()])
