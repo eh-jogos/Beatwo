@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Enemies/Enemy01/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/Enemy01/enemy01.png" type="Texture" id=2]
@@ -10,7 +10,6 @@ extents = Vector2( 15, 30 )
 
 [sub_resource type="Animation" id=2]
 
-resource/name = "dying"
 length = 0.2
 loop = false
 step = 0.1
@@ -49,29 +48,72 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=3]
 
-resource/name = "idle"
-length = 0.2
-loop = false
+length = 0.8
+loop = true
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:transform/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
+"times": FloatArray( 0, 0.4, 0.8 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.4, 0.8 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Collision:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Collision:transform/pos")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = {
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "active"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4, 0.8 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.40625, 0.334839, 0.401787, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "inactive"
+length = 0.01
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="Enemy01" type="KinematicBody2D"]
@@ -90,10 +132,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="."]
 
+transform/scale = Vector2( 1.02609, 1.02609 )
 texture = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -105,6 +149,18 @@ playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/dying = SubResource( 2 )
 anims/idle = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="TargetAnimator" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/active = SubResource( 4 )
+anims/inactive = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

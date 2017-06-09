@@ -22,6 +22,9 @@ func take_damage(damage, entity):
 # State Base Functions #
 ########################
 func enter(entity, variable):	
+	if battle_brain.get_focus() == true:
+		battle_brain.set_focus(false)
+	
 	if !entity.is_connected("internal_damage", self, "take_damage"):
 		entity.connect("internal_damage", self, "take_damage",[entity])
 	

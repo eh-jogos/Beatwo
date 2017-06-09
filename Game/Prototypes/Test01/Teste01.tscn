@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Scenes/Background/CanvasLayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Arena/Arena.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Players/MainPlayer/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/Enemy01/Enemy01.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Gui/Prototype_HUD/AtkBtn.png" type="Texture" id=5]
-[ext_resource path="res://Gui/Prototype_HUD/AtkBtn_pressed.png" type="Texture" id=6]
-[ext_resource path="res://Gui/Prototype_HUD/CounterBtn.png" type="Texture" id=7]
-[ext_resource path="res://Gui/Prototype_HUD/CounterBtn_pressed.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/EnemySpawner.gd" type="Script" id=5]
+[ext_resource path="res://Gui/Prototype_HUD/AtkBtn.png" type="Texture" id=6]
+[ext_resource path="res://Gui/Prototype_HUD/AtkBtn_pressed.png" type="Texture" id=7]
+[ext_resource path="res://Gui/Prototype_HUD/CounterBtn.png" type="Texture" id=8]
+[ext_resource path="res://Gui/Prototype_HUD/CounterBtn_pressed.png" type="Texture" id=9]
 
 [node name="Teste01" type="Node2D"]
 
@@ -17,23 +18,30 @@
 
 transform/pos = Vector2( 180.596, 475.152 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="EntitiesLayer" type="YSort" parent="."]
+
+sort/enabled = true
+
+[node name="Player" parent="EntitiesLayer" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 180.26, 252.079 )
 
-[node name="EnemySpawner" type="Node2D" parent="."]
+[node name="Enemy1" parent="EntitiesLayer" instance=ExtResource( 4 )]
 
-[node name="Enemy1" parent="." instance=ExtResource( 4 )]
+material/use_parent = true
+transform/pos = Vector2( 212, 251.635 )
 
-transform/pos = Vector2( 212.409, 251.635 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 4 )]
+[node name="Enemy2" parent="EntitiesLayer" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 136.409, 251.635 )
 
-[node name="Enemy3" parent="." instance=ExtResource( 4 )]
+[node name="Enemy3" parent="EntitiesLayer" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 194.296, 258.276 )
+transform/pos = Vector2( 193.087, 257.264 )
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+
+script/script = ExtResource( 5 )
 
 [node name="HUD" type="Control" parent="."]
 
@@ -52,8 +60,8 @@ __meta__ = {
 [node name="AttackBtn" type="TouchScreenButton" parent="HUD"]
 
 transform/pos = Vector2( 215, 560 )
-normal = ExtResource( 5 )
-pressed = ExtResource( 6 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -65,8 +73,8 @@ visibility_mode = 0
 [node name="CounterBtn" type="TouchScreenButton" parent="HUD"]
 
 transform/pos = Vector2( 79, 560 )
-normal = ExtResource( 7 )
-pressed = ExtResource( 8 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 9 )
 bitmask = null
 shape = null
 shape_centered = true

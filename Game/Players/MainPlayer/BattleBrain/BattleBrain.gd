@@ -7,6 +7,7 @@ var attack_target = null
 var counter_target = []
 
 var vulnerable = true
+var focused = false
 
 #############################
 # Custom Method Definitions #
@@ -16,7 +17,13 @@ func get_attack_target():
 	return attack_target
 
 func set_attack_target(target):
-	attack_target = target
+#	if attack_target != null and attack_target.has_method("set_target"):
+#		attack_target.set_target(false)
+	if target != null and focused != true:
+		target.set_target(true)
+	
+	if focused != true:
+		attack_target = target
 
 func get_counter_target():
 	return counter_target
@@ -29,6 +36,12 @@ func get_vulnerability():
 
 func set_vulnerability(boolean):
 	vulnerable = boolean
+
+func get_focus():
+	return focused
+
+func set_focus(boolean):
+    focused = boolean
 
 ###########################
 # Engine Standard Methods #

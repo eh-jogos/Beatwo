@@ -43,6 +43,7 @@ func change_state(state, variable, entity):
 # State Base Functions #
 ########################
 func enter(entity, attack_target):
+	battle_brain.set_focus(true)
 	radar = entity.radar()
 	var enemies = radar.get_overlapping_bodies()
 	
