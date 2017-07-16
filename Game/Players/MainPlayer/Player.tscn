@@ -236,7 +236,7 @@ collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 health = 10
-hit_damage = 2
+hit_damage = 1
 
 [node name="BattleBrain" type="Node" parent="."]
 

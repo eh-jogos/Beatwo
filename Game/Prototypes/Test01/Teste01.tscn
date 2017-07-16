@@ -1,20 +1,24 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=12 format=1]
 
-[ext_resource path="res://Scenes/Background/CanvasLayer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Arena/Arena.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Players/MainPlayer/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemies/Enemy01/Enemy01.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Enemies/EnemySpawner.gd" type="Script" id=5]
-[ext_resource path="res://Gui/Prototype_HUD/AtkBtn.png" type="Texture" id=6]
-[ext_resource path="res://Gui/Prototype_HUD/AtkBtn_pressed.png" type="Texture" id=7]
-[ext_resource path="res://Gui/Prototype_HUD/CounterBtn.png" type="Texture" id=8]
-[ext_resource path="res://Gui/Prototype_HUD/CounterBtn_pressed.png" type="Texture" id=9]
+[ext_resource path="res://Prototypes/Test01/Teste01.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Background/CanvasLayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Arena/Arena.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Players/MainPlayer/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/Enemy01/Enemy01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemies/EnemySpawner.gd" type="Script" id=6]
+[ext_resource path="res://Gui/Prototype_HUD/AtkBtn.png" type="Texture" id=7]
+[ext_resource path="res://Gui/Prototype_HUD/AtkBtn_pressed.png" type="Texture" id=8]
+[ext_resource path="res://Gui/Prototype_HUD/CounterBtn.png" type="Texture" id=9]
+[ext_resource path="res://Gui/Prototype_HUD/CounterBtn_pressed.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Panel/panel.gd" type="Script" id=11]
 
 [node name="Teste01" type="Node2D"]
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 1 )]
+script/script = ExtResource( 1 )
 
-[node name="Arena" parent="." instance=ExtResource( 2 )]
+[node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
+
+[node name="Arena" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 180.596, 475.152 )
 
@@ -22,26 +26,26 @@ transform/pos = Vector2( 180.596, 475.152 )
 
 sort/enabled = true
 
-[node name="Player" parent="EntitiesLayer" instance=ExtResource( 3 )]
+[node name="Player" parent="EntitiesLayer" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 180.26, 252.079 )
 
-[node name="Enemy1" parent="EntitiesLayer" instance=ExtResource( 4 )]
+[node name="Enemy1" parent="EntitiesLayer" instance=ExtResource( 5 )]
 
 material/use_parent = true
 transform/pos = Vector2( 212, 251.635 )
 
-[node name="Enemy2" parent="EntitiesLayer" instance=ExtResource( 4 )]
+[node name="Enemy2" parent="EntitiesLayer" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 136.409, 251.635 )
 
-[node name="Enemy3" parent="EntitiesLayer" instance=ExtResource( 4 )]
+[node name="Enemy3" parent="EntitiesLayer" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 193.087, 257.264 )
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 
-script/script = ExtResource( 5 )
+script/script = ExtResource( 6 )
 
 [node name="HUD" type="Control" parent="."]
 
@@ -60,8 +64,8 @@ __meta__ = {
 [node name="AttackBtn" type="TouchScreenButton" parent="HUD"]
 
 transform/pos = Vector2( 215, 560 )
-normal = ExtResource( 6 )
-pressed = ExtResource( 7 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 8 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -73,8 +77,8 @@ visibility_mode = 0
 [node name="CounterBtn" type="TouchScreenButton" parent="HUD"]
 
 transform/pos = Vector2( 79, 560 )
-normal = ExtResource( 8 )
-pressed = ExtResource( 9 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 10 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -82,5 +86,79 @@ shape_visible = true
 passby_press = false
 action = "counter"
 visibility_mode = 0
+
+[node name="Panel" type="Control" parent="HUD"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 11 )
+
+[node name="EnemyName" type="Label" parent="HUD/Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 180.0
+margin/top = 328.0
+margin/right = 290.0
+margin/bottom = 347.0
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="EnemyLife" type="Label" parent="HUD/Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 180.0
+margin/top = 353.0
+margin/right = 290.0
+margin/bottom = 372.0
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Player" type="Label" parent="HUD/Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 68.0
+margin/top = 328.0
+margin/right = 178.0
+margin/bottom = 347.0
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="PlayerLife" type="Label" parent="HUD/Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 68.0
+margin/top = 353.0
+margin/right = 178.0
+margin/bottom = 372.0
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

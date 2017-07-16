@@ -96,7 +96,7 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.4, 0.8 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.40625, 0.334839, 0.401787, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -129,11 +129,13 @@ script/script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+health = 3
+hit_damage = 2
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/scale = Vector2( 1.02609, 1.02609 )
 texture = ExtResource( 2 )
+modulate = Color( 0, 0, 1, 1 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 

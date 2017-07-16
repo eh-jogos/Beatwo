@@ -18,7 +18,7 @@ var counter_target = []
 func hit_target(node_path):
 	var hit_damage = get_node(node_path).get_hit_damage()
 	if target != null:
-		print("hit")
+		#print("hit")
 		target.take_damage(hit_damage)
 
 func take_damage(damage, entity):
@@ -31,6 +31,7 @@ func take_damage(damage, entity):
 # get's called at the end of attack animation
 func choose_action(node_path):
 	var entity = self.get_node(node_path)
+	target = battle_brain.get_attack_target()
 	change_state(next_action, target, entity)
 
 
@@ -49,7 +50,10 @@ func enter(entity, attack_target):
 	
 	for enemy in enemies:
 		if enemy == attack_target:
-			target = attack_target	
+			target = attack_target
+	
+	if target == null:
+		battle_brain.set_focus(false)
 	
 	entity.animator().play("attack1")
 	

@@ -3,6 +3,8 @@ extends Node
 ##########################
 # class member variables #
 ##########################
+onready var player = get_node("..")
+
 var attack_target = null
 var counter_target = []
 
@@ -24,6 +26,7 @@ func set_attack_target(target):
 	
 	if focused != true:
 		attack_target = target
+		player.update_enemy_panel(target.get_name(), target.get_health())
 
 func get_counter_target():
 	return counter_target

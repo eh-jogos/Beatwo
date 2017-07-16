@@ -14,7 +14,7 @@
    viewBox="0 0 640.00001 800.00001"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.1 r"
+   inkscape:version="0.92.1 r15371"
    sodipodi:docname="game_mockup.svg">
   <defs
      id="defs4" />
@@ -26,16 +26,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="286.42056"
-     inkscape:cy="267.70544"
+     inkscape:cx="332.92056"
+     inkscape:cy="450.70544"
      inkscape:document-units="px"
      inkscape:current-layer="layer5"
      showgrid="false"
      units="px"
      inkscape:window-width="1600"
-     inkscape:window-height="1148"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="1138"
+     inkscape:window-x="1272"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      showguides="false"
      fit-margin-top="0"
@@ -143,7 +143,10 @@
        height="74.478142"
        width="37.239071"
        id="rect4270"
-       style="opacity:1;fill:#bf4861;fill-opacity:1;stroke:none;stroke-width:2.93195629;stroke-miterlimit:4;stroke-dasharray:11.72782502, 11.72782502;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.93195629;stroke-miterlimit:4;stroke-dasharray:11.72782502, 11.72782501999999900;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="D:\Daniel\Projetos Games\KingOfTheHill\Beatwo\Game\Enemies\Enemy01\enemy01.png"
+       inkscape:export-xdpi="72.504517"
+       inkscape:export-ydpi="72.504517" />
     <rect
        style="opacity:1;fill:#bf48aa;fill-opacity:1;stroke:none;stroke-width:2.93195629;stroke-miterlimit:4;stroke-dasharray:11.72782502, 11.72782502;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4258"
