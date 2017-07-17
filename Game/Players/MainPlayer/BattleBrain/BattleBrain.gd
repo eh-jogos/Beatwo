@@ -21,12 +21,12 @@ func get_attack_target():
 func set_attack_target(target):
 #	if attack_target != null and attack_target.has_method("set_target"):
 #		attack_target.set_target(false)
-	if target != null and focused != true:
+	if target != null and focused == false:
 		target.set_target(true)
-	
-	if focused != true:
-		attack_target = target
 		player.update_enemy_panel(target.get_name(), target.get_health())
+	
+	if focused == false:
+		attack_target = target
 
 func get_counter_target():
 	return counter_target

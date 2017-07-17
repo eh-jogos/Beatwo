@@ -3,7 +3,6 @@ extends Node
 ##########################
 # Class Member Variables #
 ##########################
-
 onready var __parent = self.get_node("..")
 
 
@@ -17,9 +16,6 @@ onready var __parent = self.get_node("..")
 ########################
 
 func enter(entity, variable):
-	pass
-
-func input(entity, event):
 	pass
 
 func update(entity, delta):

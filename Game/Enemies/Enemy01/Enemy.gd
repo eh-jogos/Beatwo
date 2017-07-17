@@ -10,7 +10,10 @@ onready var game = self.get_node("../..")
 export var health = 3
 export var hit_damage = 2
 
-signal attack_player(damage)
+var is_flipped = false
+
+signal attack_player
+signal internal_damage
 
 #############################
 # Custom Method Definitions #
@@ -18,17 +21,20 @@ signal attack_player(damage)
 func get_health():
 	return health
 
-func take_damage(dmg):
-#	animator.play("dying")
-	health -= dmg
-	
+func set_health(hp):
+	health = hp
+
+func get_hit_damage():
+	return hit_damage
+
+func get_flip():
+	return is_flipped
+
+func update_enemy_panel():
 	game.emit_signal("enemy_panel",self.get_name(),health)
-	
-	if health <= 0:
-		self.queue_free()
-#	var current_pos = self.get_pos()
-#	self.set_pos(Vector2(current_pos.x+110,current_pos.y))
-	pass
+
+func take_damage(dmg):
+	self.emit_signal("internal_damage",dmg)
 
 func set_target(boolean):
 	if boolean:
@@ -46,4 +52,8 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	animator.play("idle")
+	
+	if self.get_pos().x < 360/2:
+		is_flipped = true
+	
 	pass

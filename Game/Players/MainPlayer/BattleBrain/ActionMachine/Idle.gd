@@ -12,8 +12,6 @@ var counter_target = []
 #########################
 func take_damage(damage, entity):
 	if battle_brain.get_vulnerability():
-		if entity.is_connected("internal_damage", self, "take_damage"):
-			entity.disconnect("internal_damage", self, "take_damag")
 		var next_state = __parent.get_node("TakeDamage")
 		__parent.transition_to(next_state, damage)
 
@@ -47,3 +45,7 @@ func update(entity, delta):
 	attack_target = battle_brain.get_attack_target()
 	counter_target = battle_brain.get_counter_target()
 	pass
+
+func exit(entity):
+	if entity.is_connected("internal_damage", self, "take_damage"):
+		entity.disconnect("internal_damage", self, "take_damage")

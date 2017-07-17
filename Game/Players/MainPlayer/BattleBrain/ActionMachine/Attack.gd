@@ -23,8 +23,6 @@ func hit_target(node_path):
 
 func take_damage(damage, entity):
 	if battle_brain.get_vulnerability():
-		if entity.is_connected("internal_damage", self, "take_damage"):
-			entity.disconnect("internal_damage", self, "take_damag")
 		var next_state = __parent.get_node("TakeDamage")
 		__parent.transition_to(next_state, damage)
 

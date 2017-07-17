@@ -13,7 +13,7 @@ export var health = 10
 export var hit_damage = 5
 
 
-signal internal_damage(dmg)
+signal internal_damage
 
 #############################
 # Custom Method Definitions #

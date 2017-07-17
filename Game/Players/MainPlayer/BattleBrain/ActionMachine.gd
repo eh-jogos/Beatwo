@@ -13,6 +13,7 @@ onready var debug = player.get_node("DebugPanels/ActionMachine/DebugText")
 #############################
 
 func transition_to(state, variable = null):
+	self.__state.exit(player)
 	self.__state = state
 	debug.set_text(state.get_name())
 	self.__state.enter(player, variable)
