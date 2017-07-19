@@ -12,14 +12,14 @@ var health
 ##########################
 func recover():
 	animator.play("idle")
-	back_to_battle()
+	back_to_seek()
 
 func combo_damage(damage):
 	var next_state = self
 	__parent.transition_to(next_state, damage)
 
-func back_to_battle():
-	var next_state = __parent.get_node("Battle")
+func back_to_seek():
+	var next_state = __parent.get_node("Seek")
 	__parent.transition_to(next_state)
 
 ########################

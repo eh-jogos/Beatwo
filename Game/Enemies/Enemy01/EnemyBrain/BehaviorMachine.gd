@@ -3,7 +3,7 @@ extends Node
 ##########################
 # class member variables #
 ##########################
-onready var __state = self.get_node("Battle")
+onready var __state = self.get_node("Spawn")
 onready var entity = self.get_node("../..")
 onready var debug = entity.get_node("DebugPanels/BehaviorMachine/DebugText")
 
@@ -31,4 +31,4 @@ func _ready():
 	pass
 
 func _process(delta):
-	self.__state.update(self, delta)
+	self.__state.update(entity, delta)

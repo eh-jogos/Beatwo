@@ -5,6 +5,7 @@ extends Node2D
 # var b = "textvar"
 signal enemy_panel(name, health)
 signal player_panel(name, health)
+signal counter_warning(boolean)
 
 func _ready():
 	# Called every time the node is added to the scene.

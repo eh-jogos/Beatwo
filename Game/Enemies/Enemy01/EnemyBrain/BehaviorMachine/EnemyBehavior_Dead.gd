@@ -5,7 +5,6 @@ extends "BaseBehavior.gd"
 ##########################
 var animator
 
-
 ##########################
 # State Custom Functions #
 ##########################
@@ -16,6 +15,7 @@ var animator
 # State Base Functions #
 ########################
 func enter(entity, is_flipped):
+	entity.emit_signal("enemy_dead")
 	animator = entity.get_node("Animator")
 	
 	if is_flipped:

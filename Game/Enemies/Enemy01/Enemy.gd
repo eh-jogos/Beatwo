@@ -13,11 +13,15 @@ export var hit_damage = 2
 var is_flipped = false
 
 signal attack_player
+signal enemy_dead
 signal internal_damage
 
 #############################
 # Custom Method Definitions #
 #############################
+func animator():
+	return animator
+
 func get_health():
 	return health
 
@@ -49,9 +53,6 @@ func set_target(boolean):
 ###########################
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	animator.play("idle")
 	
 	if self.get_pos().x < 360/2:
 		is_flipped = true

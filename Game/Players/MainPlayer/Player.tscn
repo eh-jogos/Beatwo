@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Players/MainPlayer/Player.gd" type="Script" id=1]
 [ext_resource path="res://Players/MainPlayer/BattleBrain/BattleBrain.gd" type="Script" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine.gd" type="Script" id=6]
 [ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/Idle.gd" type="Script" id=7]
 [ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/Attack.gd" type="Script" id=8]
-[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/TakeDamage.gd" type="Script" id=9]
-[ext_resource path="res://Players/MainPlayer/player.tex" type="Texture" id=10]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/PlayerAction_Counter.gd" type="Script" id=9]
+[ext_resource path="res://Players/MainPlayer/BattleBrain/ActionMachine/TakeDamage.gd" type="Script" id=10]
+[ext_resource path="res://Players/MainPlayer/player.tex" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -21,65 +22,36 @@ extents = Vector2( 15, 4 )
 custom_solver_bias = 0.0
 radius = 38.5985
 
-[sub_resource type="CanvasItemShader" id=3]
-
-_code = {
-"fragment": "
-uniform color modulate=color(0.2,0.4,1.0,1.0);
-COLOR = vec4(modulate.rgb,tex(TEXTURE,UV).a*modulate.a);",
-"fragment_ofs": 0,
-"light": "",
-"light_ofs": 0,
-"vertex": "",
-"vertex_ofs": 0
-}
-
-[sub_resource type="CanvasItemMaterial" id=4]
-
-shader/shader = SubResource( 3 )
-shader/shading_mode = 0
-shader_param/modulate = Color( 0.415686, 0.690196, 0, 1 )
-
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 
 length = 0.4
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material/material:shader_param/modulate")
+tracks/0/path = NodePath("Sprite:transform/scale")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
 "times": FloatArray( 0, 0.1, 0.3 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.415686, 0.690196, 0, 1 ), Color( 0.839216, 0.0156863, 0.0784314, 1 ), Color( 0.415686, 0.690196, 0, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:transform/scale")
+tracks/1/path = NodePath("Sprite:transform/pos")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
 "times": FloatArray( 0, 0.1, 0.3 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:transform/pos")
+tracks/2/type = "method"
+tracks/2/path = NodePath("BattleBrain/ActionMachine/Attack")
 tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = {
-"times": FloatArray( 0, 0.1, 0.3 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("BattleBrain/ActionMachine/Attack")
-tracks/3/interp = 1
-tracks/3/imported = false
-tracks/3/keys = {
 "times": FloatArray( 0.1, 0.4 ),
 "transitions": FloatArray( 1, 1 ),
 "values": [ {
@@ -90,140 +62,199 @@ tracks/3/keys = {
 "method": "choose_action"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.1, 0.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.411765, 0.686275, 0, 1 ), Color( 0.839216, 0.0156863, 0.0784314, 1 ), Color( 0.411765, 0.686275, 0, 1 ) ]
+}
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 
 resource/name = "counter1"
 length = 0.3
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material/material:shader_param/modulate")
+tracks/0/path = NodePath("Sprite:transform/scale")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
 "times": FloatArray( 0, 0.1, 0.3 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.415686, 0.690196, 0, 1 ), Color( 0, 0.278431, 0.580392, 1 ), Color( 0.415686, 0.690196, 0, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:transform/scale")
+tracks/1/path = NodePath("Sprite:transform/pos")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
 "times": FloatArray( 0, 0.1, 0.3 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:transform/pos")
+tracks/2/type = "method"
+tracks/2/path = NodePath("BattleBrain/ActionMachine/Counter")
 tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = {
-"times": FloatArray( 0, 0.1, 0.3 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("BattleBrain/ActionMachine/Attack")
-tracks/3/interp = 1
-tracks/3/imported = false
-tracks/3/keys = {
-"times": FloatArray( 0.3 ),
-"transitions": FloatArray( 1 ),
+"times": FloatArray( 0.1, 0.3 ),
+"transitions": FloatArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "hit_counter"
+}, {
 "args": [  ],
 "method": "back_to_idle"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.1, 0.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.411765, 0.686275, 0, 1 ), Color( 0, 0.27451, 0.576471, 1 ), Color( 0.411765, 0.686275, 0, 1 ) ]
+}
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 
 resource/name = "idle"
 length = 0.8
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material/material:shader_param/modulate")
+tracks/0/path = NodePath("Sprite:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4, 0.8 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Color( 0.411765, 0.686275, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "take_damage"
+length = 0.8
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.6, 0.8 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -3, 0 ), Vector2( 3, 0 ), Vector2( 0, -3 ), Vector2( 0, 3 ), Vector2( -3, 0 ), Vector2( 3, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("BattleBrain/ActionMachine/TakeDamage")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.8 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "back_to_idle"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.2, 0.6, 0.8 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.411765, 0.686275, 0, 1 ), Color( 0.423529, 0.164706, 0.737255, 1 ), Color( 0.423529, 0.164706, 0.737255, 1 ), Color( 0.411765, 0.686275, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource/name = "invulnerable"
+length = 2.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.4, 0.6, 0.9, 1.2, 1.6, 2, 2.4 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.2, 1.0, 0.2, 1.0, 0.2, 1.0, 0.2, 1.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("BattleBrain")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 2.4 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_vulnerability"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource/name = "vulnerable"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visibility/opacity")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 0,
-"values": [ Color( 0.415686, 0.690196, 0, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:transform/scale")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 0, 0.4, 0.8 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:transform/pos")
-tracks/2/interp = 1
-tracks/2/imported = false
-tracks/2/keys = {
-"times": FloatArray( 0, 0.4 ),
-"transitions": FloatArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-
-resource/name = "take_damage"
-length = 0.5
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material/material:shader_param/modulate")
-tracks/0/interp = 1
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.2, 0.5 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0.415686, 0.690196, 0, 1 ), Color( 0.426008, 0.167267, 0.738281, 1 ), Color( 0.415686, 0.690196, 0, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:transform/scale")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 0, 0.2, 0.5 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:transform/pos")
-tracks/2/interp = 1
-tracks/2/imported = false
-tracks/2/keys = {
-"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -3, 0 ), Vector2( 3, 0 ), Vector2( 0, -3 ), Vector2( 0, 3 ), Vector2( 0, 0 ) ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("BattleBrain/ActionMachine/TakeDamage")
-tracks/3/interp = 1
-tracks/3/imported = false
-tracks/3/keys = {
-"times": FloatArray( 0.5 ),
-"transitions": FloatArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "back_to_idle"
-} ]
+"values": [ 1.0 ]
 }
 
 [node name="Player" type="KinematicBody2D"]
@@ -269,9 +300,11 @@ script/script = ExtResource( 8 )
 
 [node name="Counter" type="Node" parent="BattleBrain/ActionMachine"]
 
+script/script = ExtResource( 9 )
+
 [node name="TakeDamage" type="Node" parent="BattleBrain/ActionMachine"]
 
-script/script = ExtResource( 9 )
+script/script = ExtResource( 10 )
 
 [node name="EnemyDetection" type="Area2D" parent="."]
 
@@ -297,8 +330,8 @@ _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-material/material = SubResource( 4 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
+modulate = Color( 0.411765, 0.686275, 0, 1 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
@@ -312,10 +345,22 @@ _update_shape_index = 0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/attack1 = SubResource( 5 )
-anims/counter1 = SubResource( 6 )
-anims/idle = SubResource( 7 )
-anims/take_damage = SubResource( 8 )
+anims/attack1 = SubResource( 3 )
+anims/counter1 = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/take_damage = SubResource( 6 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="VulnerableAnimator" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/invulnerable = SubResource( 7 )
+anims/vulnerable = SubResource( 8 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -323,7 +368,6 @@ autoplay = ""
 
 [node name="DebugPanels" type="Control" parent="."]
 
-editor/display_folded = true
 anchor/left = 3
 anchor/top = 3
 anchor/right = 3

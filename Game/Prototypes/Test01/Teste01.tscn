@@ -1,16 +1,60 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://Prototypes/Test01/Teste01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Background/CanvasLayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Arena/Arena.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Players/MainPlayer/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Enemies/Enemy01/Enemy01.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemies/EnemySpawner.gd" type="Script" id=6]
-[ext_resource path="res://Gui/Prototype_HUD/AtkBtn.png" type="Texture" id=7]
-[ext_resource path="res://Gui/Prototype_HUD/AtkBtn_pressed.png" type="Texture" id=8]
-[ext_resource path="res://Gui/Prototype_HUD/CounterBtn.png" type="Texture" id=9]
-[ext_resource path="res://Gui/Prototype_HUD/CounterBtn_pressed.png" type="Texture" id=10]
-[ext_resource path="res://Scenes/Panel/panel.gd" type="Script" id=11]
+[ext_resource path="res://Enemies/EnemySpawner.gd" type="Script" id=5]
+[ext_resource path="res://Gui/Prototype_HUD/AtkBtn.png" type="Texture" id=6]
+[ext_resource path="res://Gui/Prototype_HUD/AtkBtn_pressed.png" type="Texture" id=7]
+[ext_resource path="res://Gui/Prototype_HUD/CounterBtn.png" type="Texture" id=8]
+[ext_resource path="res://Gui/Prototype_HUD/CounterBtn_pressed.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Panel/panel.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Panel/panel_counter.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "counter_warning"
+length = 0.8
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "normal"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [node name="Teste01" type="Node2D"]
 
@@ -30,22 +74,34 @@ sort/enabled = true
 
 transform/pos = Vector2( 180.26, 252.079 )
 
-[node name="Enemy1" parent="EntitiesLayer" instance=ExtResource( 5 )]
-
-material/use_parent = true
-transform/pos = Vector2( 212, 251.635 )
-
-[node name="Enemy2" parent="EntitiesLayer" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 136.409, 251.635 )
-
-[node name="Enemy3" parent="EntitiesLayer" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 193.087, 257.264 )
-
 [node name="EnemySpawner" type="Node2D" parent="."]
 
-script/script = ExtResource( 6 )
+editor/display_folded = true
+script/script = ExtResource( 5 )
+
+[node name="SpawnPosition0" type="Position2D" parent="EnemySpawner"]
+
+transform/pos = Vector2( 75, 300 )
+
+[node name="SpawnPosition1" type="Position2D" parent="EnemySpawner"]
+
+transform/pos = Vector2( 90, 282 )
+
+[node name="SpawnPosition2" type="Position2D" parent="EnemySpawner"]
+
+transform/pos = Vector2( 100, 267 )
+
+[node name="SpawnPosition3" type="Position2D" parent="EnemySpawner"]
+
+transform/pos = Vector2( 285, 300 )
+
+[node name="SpawnPosition4" type="Position2D" parent="EnemySpawner"]
+
+transform/pos = Vector2( 272, 282 )
+
+[node name="SpawnPosition5" type="Position2D" parent="EnemySpawner"]
+
+transform/pos = Vector2( 262, 267 )
 
 [node name="HUD" type="Control" parent="."]
 
@@ -57,15 +113,12 @@ margin/left = 1.0
 margin/top = 0.0
 margin/right = 361.0
 margin/bottom = 640.0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AttackBtn" type="TouchScreenButton" parent="HUD"]
 
 transform/pos = Vector2( 215, 560 )
-normal = ExtResource( 7 )
-pressed = ExtResource( 8 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -77,8 +130,8 @@ visibility_mode = 0
 [node name="CounterBtn" type="TouchScreenButton" parent="HUD"]
 
 transform/pos = Vector2( 79, 560 )
-normal = ExtResource( 9 )
-pressed = ExtResource( 10 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 9 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -97,7 +150,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
-script/script = ExtResource( 11 )
+script/script = ExtResource( 10 )
 
 [node name="EnemyName" type="Label" parent="HUD/Panel"]
 
@@ -160,5 +213,22 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Sprite" type="Sprite" parent="HUD/Panel"]
+
+transform/pos = Vector2( 180.097, 435.174 )
+texture = ExtResource( 11 )
+
+[node name="PanelAnimator" type="AnimationPlayer" parent="HUD/Panel"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/counter_warning = SubResource( 1 )
+anims/normal = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 

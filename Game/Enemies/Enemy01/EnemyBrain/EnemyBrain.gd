@@ -22,7 +22,4 @@ func get_player_pos():
 ###########################
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	print(__player.get_name())
 	pass

@@ -19,26 +19,40 @@ func get_attack_target():
 	return attack_target
 
 func set_attack_target(target):
-#	if attack_target != null and attack_target.has_method("set_target"):
-#		attack_target.set_target(false)
+	if attack_target != target and attack_target != null and target != null:
+		attack_target.set_target(false)
+	
 	if target != null and focused == false:
 		target.set_target(true)
 		player.update_enemy_panel(target.get_name(), target.get_health())
 	
-	if focused == false:
+	if target == null or focused == false:
 		attack_target = target
 
 func get_counter_target():
 	return counter_target
 
 func set_counter_target(target):
-	counter_target = [] + target
+	counter_target += target
+	player.counter_warning(true)
+#	print(counter_target)
+
+func clean_counter_target():
+	counter_target = []
+	player.counter_warning(false)
 
 func get_vulnerability():
 	return vulnerable
 
 func set_vulnerability(boolean):
+	var vulnerable_animator = player.get_node("VulnerableAnimator")
+	
 	vulnerable = boolean
+	
+	if vulnerable:
+		vulnerable_animator.play("vulnerable")
+	else:
+		vulnerable_animator.play("invulnerable")
 
 func get_focus():
 	return focused

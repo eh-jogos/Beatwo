@@ -25,7 +25,4 @@ func update(entity, delta):
 	if enemy_count > 0:
 		var next_state = __parent.get_node("ChooseTarget")
 		__parent.transition_to(next_state)
-	else:
-		battle_brain.set_attack_target(null)
-		battle_brain.set_counter_target([])
 	pass

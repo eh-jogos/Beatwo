@@ -30,11 +30,10 @@ func take_damage(damage, entity):
 func choose_action(node_path):
 	var entity = self.get_node(node_path)
 	target = battle_brain.get_attack_target()
-	change_state(next_action, target, entity)
+	change_state(next_action, target)
 
 
-func change_state(state, variable, entity):
-	exit(entity)
+func change_state(state, variable):
 	__parent.transition_to(state, variable)
 
 
@@ -64,7 +63,7 @@ func input(entity, event):
 	
 	if event.is_action_pressed("counter") and counter_target.size() > 0:
 		var next_state = __parent.get_node("Counter")
-		change_state(next_state, counter_target, entity)
+		change_state(next_state, counter_target)
 
 func update(entity, delta):
 	counter_target = battle_brain.get_counter_target()

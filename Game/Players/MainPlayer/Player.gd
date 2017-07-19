@@ -14,6 +14,7 @@ export var hit_damage = 5
 
 
 signal internal_damage
+signal clear_counter
 
 #############################
 # Custom Method Definitions #
@@ -46,6 +47,10 @@ func update_enemy_panel(enemy_name, enemy_health):
 
 func update_player_panel(name, health):
 	game.emit_signal("player_panel", name, health)
+
+func counter_warning(boolean):
+	game.emit_signal("counter_warning",boolean)
+	self.emit_signal("clear_counter")
 
 ###########################
 # Engine Standard Methods #

@@ -3,6 +3,8 @@ extends "BaseAction.gd"
 ##########################
 # class member variables #
 ##########################
+onready var battle_brain = __parent.get_node("..")
+
 var animator
 var health
 
@@ -10,10 +12,13 @@ var health
 #State Custom Functions #
 #########################
 func combo_damage(damage):
-	var next_state = self
-	__parent.transition_to(next_state, damage)
+	if battle_brain.get_vulnerability():
+		var next_state = self
+		__parent.transition_to(next_state, damage)
 
 func back_to_idle():
+	battle_brain.set_vulnerability(false)
+	
 	var next_state = __parent.get_node("Idle")
 	__parent.transition_to(next_state)
 
@@ -22,6 +27,8 @@ func back_to_idle():
 # State Base Functions #
 ########################
 func enter(entity, dmg):
+	battle_brain.clean_counter_target()
+	
 	animator = entity.animator()
 	health = entity.get_health()
 	
