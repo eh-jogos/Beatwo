@@ -1,4 +1,4 @@
-extends "BaseBehavior.gd"
+extends "EnemyBehavior__Base.gd"
 
 ##########################
 # class member variables #

@@ -1,4 +1,4 @@
-extends "BaseAction.gd"
+extends "PlayerAction__Base.gd"
 
 ##########################
 # class member variables #

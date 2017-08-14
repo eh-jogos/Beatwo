@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="332.92056"
-     inkscape:cy="450.70544"
+     inkscape:cx="-108.57944"
+     inkscape:cy="559.70544"
      inkscape:document-units="px"
      inkscape:current-layer="layer5"
      showgrid="false"
@@ -160,10 +160,11 @@
        width="293"
        height="283.25"
        x="173"
-       y="233.89719"
+       y="-517.14722"
        inkscape:export-filename="/mnt/data/DanielWIN/Projetos Games/KingOfTheHill/2BMobile/Art/prototype/pngs/panel.png"
        inkscape:export-xdpi="72"
-       inkscape:export-ydpi="72" />
+       inkscape:export-ydpi="72"
+       transform="scale(1,-1)" />
     <circle
        inkscape:export-ydpi="72"
        inkscape:export-xdpi="72"
@@ -388,6 +389,30 @@
            id="tspan4509"
            sodipodi:role="line">C</tspan></text>
     </g>
+    <rect
+       style="display:inline;opacity:1;fill:#ff003a;fill-opacity:1;stroke:none;stroke-width:4.09532356;stroke-miterlimit:4;stroke-dasharray:16.3812935, 16.38129350000000200;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4274-3"
+       width="293.00003"
+       height="283.25"
+       x="-356.50003"
+       y="-3.1875172"
+       inkscape:export-filename="D:\Daniel\Projetos Games\KingOfTheHill\Beatwo\Art\prototype\pngs\panel_counter.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:327.39361572px;line-height:1.25;font-family:'Lithos Pro';-inkscape-font-specification:'Lithos Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:8.18484116;"
+       x="-262.40826"
+       y="250.93748"
+       id="text4553"
+       inkscape:export-filename="D:\Daniel\Projetos Games\KingOfTheHill\Beatwo\Art\prototype\pngs\panel_counter.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72"><tspan
+         sodipodi:role="line"
+         id="tspan4551"
+         x="-262.40826"
+         y="250.93748"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:327.39361572px;font-family:'Lithos Pro';-inkscape-font-specification:'Lithos Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:8.18484116;fill:#ffffff;fill-opacity:1;">!</tspan></text>
   </g>
   <g
      inkscape:label="Mascara vertical"

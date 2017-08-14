@@ -1,4 +1,4 @@
-extends "BaseSense.gd"
+extends "PlayerSense__Base.gd"
 
 ##########################
 # Class Member Variables #

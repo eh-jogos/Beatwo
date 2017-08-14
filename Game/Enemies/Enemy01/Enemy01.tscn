@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Enemies/Enemy01/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/Enemy01/EnemyBrain/EnemyBrain.gd" type="Script" id=2]
-[ext_resource path="res://Enemies/Enemy01/EnemyBrain/BehaviorMachine.gd" type="Script" id=3]
+[ext_resource path="res://Enemies/Enemy01/EnemyBrain/EnemyBehaviorMachine.gd" type="Script" id=3]
 [ext_resource path="res://Enemies/Enemy01/EnemyBrain/BehaviorMachine/EnemyBehavior_Battle.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/Enemy01/EnemyBrain/BehaviorMachine/EnemyBehavior_Dead.gd" type="Script" id=5]
 [ext_resource path="res://Enemies/Enemy01/EnemyBrain/BehaviorMachine/EnemyBehavior_Idle.gd" type="Script" id=6]
