@@ -39,9 +39,14 @@ func enter(entity, dmg):
 	
 	health -= dmg
 	
-	entity.set_health(health)
+	if health <= 0:
+		var next_state = __parent.get_node("Dead")
+		__parent.transition_to(next_state)
+	else:
+		entity.set_health(health)
+	
 	pass
 
 func exit(entity):
-	if !entity.is_connected("internal_damage",self,"combo_damage"):
-		entity.connect("internal_damage",self,"combo_damage")
+	if entity.is_connected("internal_damage",self,"combo_damage"):
+		entity.disconnect("internal_damage",self,"combo_damage")

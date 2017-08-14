@@ -1,11 +1,13 @@
-extends Node
+extends "PlayerAction__Base.gd"
 
 ##########################
-# Class Member Variables #
+# class member variables #
 ##########################
+onready var battle_brain = __parent.get_node("..")
+var attack_target = null
+var counter_target = []
 
-onready var __parent = self.get_node("..")
-
+var health
 
 #########################
 #State Custom Functions #
@@ -15,15 +17,7 @@ onready var __parent = self.get_node("..")
 ########################
 # State Base Functions #
 ########################
-
 func enter(entity, variable):
-	pass
-
-func input(entity, event):
-	pass
-
-func update(entity, delta):
-	pass
-
-func exit(entity):
+	entity.animator().play("die")
+	entity.set_health(0)
 	pass
