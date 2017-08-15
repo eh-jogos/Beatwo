@@ -3,11 +3,7 @@ extends "PlayerAction__Base.gd"
 ##########################
 # class member variables #
 ##########################
-onready var battle_brain = __parent.get_node("..")
-var attack_target = null
-var counter_target = []
 
-var health
 
 #########################
 #State Custom Functions #

@@ -3,6 +3,8 @@ extends "EnemyBehavior__Base.gd"
 ##########################
 # class member variables #
 ##########################
+onready var enemy_brain = __parent.get_node("..")
+
 var animator
 var timer
 
@@ -20,6 +22,11 @@ func take_damage(damage):
 func attack(entity):
 	var next_state = __parent.get_node("Battle")
 	__parent.transition_to(next_state)
+
+func celebrate():
+	var next_state = __parent.get_node("Win")
+	__parent.transition_to(next_state)
+
 
 ########################
 # State Base Functions #
@@ -42,6 +49,9 @@ func enter(entity, variable):
 	idle_timer()
 
 func update(entity, delta):
+	var player_health = enemy_brain.get_player().get_health()
+	if player_health <= 0:
+		celebrate()
 	pass
 
 func exit(entity):

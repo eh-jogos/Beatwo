@@ -24,6 +24,11 @@ func go_idle():
 	var next_state = __parent.get_node("Idle")
 	__parent.transition_to(next_state)
 
+func celebrate():
+	var next_state = __parent.get_node("Win")
+	__parent.transition_to(next_state)
+
+
 ########################
 # State Base Functions #
 ########################
@@ -44,6 +49,10 @@ func enter(entity, variable):
 	pass
 
 func update(entity, delta):
+	var player_health = enemy_brain.get_player().get_health()
+	if player_health <= 0:
+		celebrate()
+	
 	var motion = direction * MAX_SPEED * delta
 	distance = entity.get_pos().distance_to(target_pos)
 	

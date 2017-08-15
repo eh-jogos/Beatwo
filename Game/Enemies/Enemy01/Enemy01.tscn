@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://Enemies/Enemy01/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/Enemy01/EnemyBrain/EnemyBrain.gd" type="Script" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://Enemies/Enemy01/EnemyBrain/BehaviorMachine/EnemyBehavior_Seek.gd" type="Script" id=7]
 [ext_resource path="res://Enemies/Enemy01/EnemyBrain/BehaviorMachine/EnemyBehavior_Spawn.gd" type="Script" id=8]
 [ext_resource path="res://Enemies/Enemy01/EnemyBrain/BehaviorMachine/EnemyBehavior_TakeDamage.gd" type="Script" id=9]
-[ext_resource path="res://Enemies/Enemy01/enemy01.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/Enemy01/EnemyBrain/BehaviorMachine/EnemyBehavior_Win.gd" type="Script" id=10]
+[ext_resource path="res://Enemies/Enemy01/enemy01.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -125,7 +126,93 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id=4]
 
-resource/name = "damage"
+resource/name = "base"
+length = 0.1
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:transform/rot")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HitBox:transform/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Collision:transform/pos")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 26 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Collision:transform/rot")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Collision:transform/scale")
+tracks/7/interp = 1
+tracks/7/imported = false
+tracks/7/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
 length = 0.4
 loop = false
 step = 0.1
@@ -210,9 +297,8 @@ tracks/7/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource/name = "damage_flip"
 length = 0.4
 loop = false
 step = 0.1
@@ -297,7 +383,7 @@ tracks/7/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
 length = 0.2
 loop = false
@@ -355,9 +441,8 @@ tracks/4/keys = {
 "values": [ Color( 0, 0, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 
-resource/name = "dying_flip"
 length = 0.2
 loop = false
 step = 0.1
@@ -414,7 +499,7 @@ tracks/4/keys = {
 "values": [ Color( 0, 0, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
 length = 0.8
 loop = true
@@ -500,9 +585,8 @@ tracks/7/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
-resource/name = "spawn"
 length = 0.8
 loop = false
 step = 0.1
@@ -609,7 +693,94 @@ tracks/9/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
+
+resource/name = "win"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4, 0.7 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10.1561 ), Vector2( 0, -43.6086 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.2, 0.4, 0.7 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.28239, 0.661463 ), Vector2( 1, 1 ), Vector2( 1.2, 1.15 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:transform/rot")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HitBox:transform/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Collision:transform/pos")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 26 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Collision:transform/rot")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Collision:transform/scale")
+tracks/7/interp = 1
+tracks/7/imported = false
+tracks/7/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
 
 length = 1.0
 loop = true
@@ -625,7 +796,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 
 length = 0.01
 loop = false
@@ -686,9 +857,15 @@ script/script = ExtResource( 8 )
 
 script/script = ExtResource( 9 )
 
+[node name="Win" type="Node" parent="EnemyBrain/BehaviorMachine"]
+
+script/script = ExtResource( 10 )
+
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 10 )
+transform/pos = Vector2( 0, 9.61326 )
+transform/scale = Vector2( 1.26729, 0.679558 )
+texture = ExtResource( 11 )
 modulate = Color( 0, 0, 1, 1 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -723,12 +900,14 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/attack = SubResource( 3 )
-anims/damage = SubResource( 4 )
-anims/damage_flip = SubResource( 5 )
-anims/dying = SubResource( 6 )
-anims/dying_flip = SubResource( 7 )
-anims/idle = SubResource( 8 )
-anims/spawn = SubResource( 9 )
+anims/base = SubResource( 4 )
+anims/damage = SubResource( 5 )
+anims/damage_flip = SubResource( 6 )
+anims/dying = SubResource( 7 )
+anims/dying_flip = SubResource( 8 )
+anims/idle = SubResource( 9 )
+anims/spawn = SubResource( 10 )
+anims/win = SubResource( 11 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -739,8 +918,8 @@ autoplay = ""
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/active = SubResource( 10 )
-anims/inactive = SubResource( 11 )
+anims/active = SubResource( 12 )
+anims/inactive = SubResource( 13 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
