@@ -3,6 +3,8 @@ extends "EnemyBehavior__Base.gd"
 ##########################
 # class member variables #
 ##########################
+
+# All instantiation of node elements, or of stuff that depends on 'onready' comes here at the top!
 onready var enemy_brain = __parent.get_node("..")
 
 var target

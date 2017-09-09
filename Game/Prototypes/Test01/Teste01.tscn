@@ -73,6 +73,7 @@ sort/enabled = true
 [node name="Player" parent="EntitiesLayer" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 180.26, 252.079 )
+counter_damage = 2
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 

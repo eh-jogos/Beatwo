@@ -3,6 +3,7 @@ extends Node
 ##########################
 # class member variables #
 ##########################
+# All instantiation of node elements, or of stuff that depends on 'onready' comes here at the top!
 onready var __player = self.get_node("../../Player")
 onready var __player_pos = __player.get_pos()
 

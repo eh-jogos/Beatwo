@@ -16,7 +16,7 @@ onready var animator = get_node("PanelAnimator")
 #############################
 # Custom Method Definitions #
 #############################
-# Mthod to update enemy side of the panel
+# Method to update enemy side of the panel
 func set_enemy_panel(name, health):
 	enemy_name.set_text(name)
 	enemy_life.set_text(String(health))
