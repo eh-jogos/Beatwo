@@ -8,7 +8,7 @@ extends Control
 onready var game = self.get_node("../..") # main game mode node
 onready var enemy_name = get_node("EnemyName")
 onready var enemy_life = get_node("EnemyLife")
-onready var player_name = get_node("Player").
+onready var player_name = get_node("Player")
 onready var player_life = get_node("PlayerLife")
 onready var animator = get_node("PanelAnimator")
 

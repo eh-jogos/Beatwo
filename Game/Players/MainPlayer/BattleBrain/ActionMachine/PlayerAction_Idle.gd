@@ -7,6 +7,8 @@ extends "PlayerAction__Base.gd"
 # All instantiation of node elements, or of stuff that depends on 'onready' comes here at the top!
 onready var battle_brain = __parent.get_node("..") # BattleBrain node
 
+# Internal target variables to be used along this state.
+var counter_target = []
 
 #########################
 #State Custom Functions #
@@ -46,7 +48,6 @@ func input(entity, event):
 	# On "counter" event, gets the target from BattleBrain and transitions to Counter State
 	if event.is_action_pressed("counter") and counter_target.size() > 0:
 		var next_state = __parent.get_node("Counter")
-		var counter_target = battle_brain.get_counter_target()
 		
 		__parent.transition_to(next_state, counter_target)
 
@@ -58,6 +59,8 @@ func update(entity, delta):
 	## @FUTURE_DATE - This will most likely change, as I intend to separate animation commands to it's own FSM.
 	if entity.animator() != null and !entity.animator().is_playing():
 		entity.animator().play("idle")
+	
+	counter_target = battle_brain.get_counter_target()
 
 # Method executed whenever the FSM exits this state
 func exit(entity):

@@ -7,6 +7,9 @@ extends "PlayerAction__Base.gd"
 # All instantiation of node elements, or of stuff that depends on 'onready' comes here at the top!
 onready var battle_brain = __parent.get_node("..") # Battle Brain node
 
+# Internal target variables to be used along this state.
+var counter_target = []
+
 #########################
 #State Custom Functions #
 #########################
