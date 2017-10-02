@@ -863,10 +863,10 @@ script/script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, 9.61326 )
-transform/scale = Vector2( 1.26729, 0.679558 )
+transform/pos = Vector2( 3, 0 )
+transform/scale = Vector2( 1.12694, 1.12694 )
 texture = ExtResource( 11 )
-modulate = Color( 0, 0, 1, 1 )
+modulate = Color( 0.539063, 0, 0, 1 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 

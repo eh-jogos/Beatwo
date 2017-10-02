@@ -70,16 +70,20 @@ func update(entity, delta):
 				smallest_distance = distance
 				temp_attack_target = enemy
 			
-			# Make sure every enemy is connected to "incoming_attack" method, so the player can "sense" attacks in order to counter
+			# Make sure every enemy is connected to "incoming_attack" method, 
+			# so the player can "sense" attacks in order to counter
 			if !enemy.is_connected("attack_player", self, "incoming_attack"):
 				enemy.connect("attack_player", self, "incoming_attack",[enemy])
 			
-			# Make sure every enemy death is connected to "set_attack_target" method on the battle brain, 
-			# so the "attack target" can be reseted as soon as teh enemy dies, preventing errors of tryingto attack a removed node
+			# Make sure every enemy death is connected to "set_attack_target" 
+			# method on the battle brain, so the "attack target" can be 
+			# reseted as soon as the enemy dies, preventing errors of 
+			# trying to attack a removed node
 			if !enemy.is_connected("enemy_dead", battle_brain, "set_attack_target"):
 				enemy.connect("enemy_dead", battle_brain, "set_attack_target",[null])
 			
-			# Make sure every enemy death is connected to "clean_counter_target" method, to reset temp_counter_target
+			# Make sure every enemy death is connected to "clean_counter_target" 
+			# method, to reset temp_counter_target
 			if !enemy.is_connected("enemy_dead", battle_brain, "clean_counter_target"):
 				enemy.connect("enemy_dead", battle_brain, "clean_counter_target")
 		

@@ -13,5 +13,7 @@ extends "EnemyBehavior__Base.gd"
 ########################
 # State Base Functions #
 ########################
+
+# Method executed everytime the FSM "enters" this state
 func enter(entity, is_flipped):
 	entity.animator().play("win")

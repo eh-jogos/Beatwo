@@ -35,7 +35,7 @@ func hit_target(node_path):
 		#print("hit")
 		target.take_damage(hit_damage)
 
-# Player's "take_damage" method, it's repeated on almos every state, it's to be used when the player is receiving damage, and will be executed by the attacking enemy entity.
+# Player's "take_damage" method, it's repeated on almost every state, it's to be used when the player is receiving damage, and will be executed by the attacking enemy entity.
 func take_damage(damage, entity):
 	# Checks if the player is vulnerable, and if it is, transitions to TakeDamege
 	if battle_brain.get_vulnerability():
